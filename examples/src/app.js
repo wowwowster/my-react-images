@@ -105,10 +105,6 @@ const theme = {
 
 render(
 	<div>
-		<div style={{ marginBottom: 40 }}>
-			<p>Photos courtesy of <a href="https://unsplash.com/" target="_blank">Unsplash</a>. Use your keyboard to navigate <kbd>left</kbd> <kbd>right</kbd> <kbd>esc</kbd> &mdash; Also, try resizing your browser window.</p>
-		</div>
-		<h3>Default Options</h3>
 		<Gallery images={DEFAULT_IMAGES.map(({ caption, id, orientation, useForDemo }) => ({
 			src: makeUnsplashSrc(id),
 			thumbnail: makeUnsplashThumbnail(id, orientation),
@@ -122,42 +118,6 @@ render(
 			orientation,
 			useForDemo,
 		}))} />
-
-		<h3>With Thumbnails</h3>
-		<Gallery images={THUMBNAIL_IMAGES.map(({ caption, id, orientation, useForDemo }) => ({
-			src: makeUnsplashSrc(id),
-			thumbnail: makeUnsplashThumbnail(id, orientation),
-			srcSet: [
-				makeUnsplashSrcSet(id, 1024),
-				makeUnsplashSrcSet(id, 800),
-				makeUnsplashSrcSet(id, 500),
-				makeUnsplashSrcSet(id, 320),
-			],
-			caption,
-			orientation,
-			useForDemo,
-		}))} showThumbnails />
-
-		<h3>Themed Lightbox</h3>
-		<Gallery images={THEMED_IMAGES.map(({ caption, id, orientation, useForDemo }) => ({
-			src: makeUnsplashSrc(id),
-			thumbnail: makeUnsplashThumbnail(id, orientation),
-			srcSet: [
-				makeUnsplashSrcSet(id, 1024),
-				makeUnsplashSrcSet(id, 800),
-				makeUnsplashSrcSet(id, 500),
-				makeUnsplashSrcSet(id, 320),
-			],
-			caption,
-			orientation,
-			useForDemo,
-		}))}
-			theme={theme}
-			spinner={CustomSpinner}
-			spinnerColor={'#D40000'}
-			spinnerSize={150}
-			showThumbnails
-	/>
 	</div>,
 	document.getElementById('example')
 );
